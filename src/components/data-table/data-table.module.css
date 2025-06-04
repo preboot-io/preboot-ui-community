@@ -1,0 +1,91 @@
+/* data-table.module.css */
+.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sortable:hover {
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
+}
+
+.skeleton {
+    height: 1rem;
+    width: 100%;
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+    border-radius: var(--mantine-radius-sm);
+}
+
+.table {
+    border-collapse: separate;
+    width: 100%;
+    flex: 1;
+    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-6));
+}
+
+.container {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.table thead[data-sticky-header="true"] th {
+    border-bottom: 1px solid var(--mantine-color-gray-4);
+}
+
+th[data-sticky-column="true"],
+td[data-sticky-column="true"] {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+    border-right: 1px solid var(--mantine-color-gray-4);
+}
+
+th[data-sticky-action="true"],
+td[data-sticky-action="true"] {
+    position: sticky;
+    right: 0;
+    z-index: 2;
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+    border-left: 1px solid var(--mantine-color-gray-4);
+}
+
+:global(.mantine-ScrollArea-scrollbar) {
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
+    z-index: 10;
+}
+
+:global(.mantine-ScrollArea-thumb) {
+    z-index: 11;
+}
+
+/* New filter grid styles */
+.filtersGrid {
+    display: grid;
+    grid-template-columns: auto minmax(200px, 1fr) auto;
+    gap: 8px 12px;
+    align-items: center;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.filterLabel {
+    justify-self: end;
+    white-space: nowrap;
+    color: var(--mantine-color-dimmed);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.filterInput {
+    width: 100%;
+    min-width: 200px;
+}
+
+.filterDelete {
+    justify-self: start;
+}
+
+.filterRow {
+    display: contents; /* This makes the children become direct children of the grid container */
+}

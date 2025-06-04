@@ -1,0 +1,16 @@
+# Development files
+src/
+node_modules/
+.git/
+.gitignore
+.npmrc
+.DS_Store
+*.log
+
+# Config files
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+
+# Make sure we don't ignore the dist folder
+!dist/
