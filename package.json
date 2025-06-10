@@ -1,15 +1,30 @@
 {
   "name": "@preboot.io/preboot-ui-community",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "private": false,
+  "description": "A community-driven React component library to accelerate building modern SaaS applications, designed to work with PreBoot.io backend.",
+  "author": "Kamil Toszek <kamil.toszek@gmail.com> (https://preboot.io)",
+  "license": "MPL-2.0",
   "type": "module",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/preboot-io/preboot-ui-community.git"
   },
+  "homepage": "https://github.com/preboot-io/preboot-ui-community#readme",
+  "bugs": {
+    "url": "https://github.com/preboot-io/preboot-ui-community/issues"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "mantine",
+    "preboot",
+    "saas",
+    "java",
+    "spring boot",
+    "typescript"
+  ],
   "files": [
     "dist/**/*"
   ],
