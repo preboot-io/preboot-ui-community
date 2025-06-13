@@ -1,3 +1,8 @@
+## 0.1.0
+DataTable
+- Added export mode support ('download' | 'async') for flexible export handling
+- Export function now returns Promise<Blob | void> to support async exports
+
 ## 0.0.9
 DataTable
 - nicer table filters layout
