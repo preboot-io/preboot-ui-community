@@ -28,8 +28,9 @@ import { saveAs } from 'file-saver';
 export type FilterType = 'text' | 'enum' | 'date' | 'array-enum' | 'boolean';
 export type FiltersRenderMode = 'all' | 'selective';
 export type ExportFormat = 'xlsx' | 'csv' | 'pdf';
+export type ExportMode = 'download' | 'async';
 export interface ExportFunction {
-    (format: ExportFormat, fileName: string, params: SearchParams): Promise<Blob>;
+    (format: ExportFormat, fileName: string, params: SearchParams): Promise<Blob | void>;
 }
 
 export interface Column<T, K extends keyof T = keyof T> {
@@ -82,6 +83,7 @@ export interface DataTableProps<T> {
     enableExport?: boolean;
     exportFormats?: ExportFormat[];
     exportFunction?: ExportFunction;
+    exportMode?: ExportMode;
     defaultExportFileName?: string;
     translations?: Translations;
 }
@@ -100,6 +102,7 @@ export function DataTable<T>({
                                  enableExport = false,
                                  exportFormats = ['xlsx'],
                                  exportFunction,
+                                 exportMode = 'download',
                                  defaultExportFileName = 'export',
                                  enableStickyColumn=false,
                                  enableStickyHeader=false,
@@ -349,12 +352,19 @@ export function DataTable<T>({
             return;
         }
 
+        if (exportMode === 'async') {
+            exportFunction(format, defaultExportFileName, currentParams);
+            return;
+        }
+
         try {
             setIsExporting(prev => ({ ...prev, [format]: true }));
 
             const blob = await exportFunction(format, defaultExportFileName, currentParams);
 
-            saveAs(blob, `${defaultExportFileName}.${format}`);
+            if (blob) {
+                saveAs(blob as Blob, `${defaultExportFileName}.${format}`);
+            }
         } catch (error) {
             console.error('Export failed:', error);
         } finally {
