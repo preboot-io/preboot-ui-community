@@ -268,7 +268,7 @@ export function DataTable<T>({
                         value={value ? new Date(value as string) : null}
                         className={styles.filterInput}
                         onChange={(date) => {
-                            handleSearch(column, date);
+                            handleSearch(column, date ? new Date(date).toISOString() : '');
                         }}
                     />
                 );
