@@ -1,10 +1,16 @@
-## 0.1.1
+## 0.1.3
+
+
+## 0.1.2
 DataTable
 - Fixed date conversion in DatePickerInput after Mantine migration from v7 to v8
 
-## 0.1.0
+## 0.1.1
 DataTable
 - Added export mode support ('download' | 'async') for flexible export handling
+
+## 0.1.0
+DataTable
 - Export function now returns Promise<Blob | void> to support async exports
 
 ## 0.0.9
