@@ -72,6 +72,8 @@ export interface DataTableProps<T> {
     onParamsChange: (params: SearchParams) => void;
     currentParams: SearchParams;
     rowActions?: RowAction<T>[];
+    onRowClick?: (item: T) => void;
+    onRowDoubleClick?: (item: T) => void;
     noRecordsText?: string;
     containerClassName?: string;
     tableClassName?: string;
@@ -95,6 +97,8 @@ export function DataTable<T>({
                                  onParamsChange,
                                  currentParams,
                                  rowActions,
+                                 onRowClick,
+                                 onRowDoubleClick,
                                  noRecordsText,
                                  containerClassName,
                                  tableClassName,
@@ -619,7 +623,12 @@ export function DataTable<T>({
                             </Table.Tr>
                         ) : (
                             data?.content?.map((item, index) => (
-                                <Table.Tr key={index}>
+                                <Table.Tr
+                                    key={index}
+                                    onClick={() => onRowClick?.(item)}
+                                    onDoubleClick={() => onRowDoubleClick?.(item)}
+                                    className={cx({[styles.clickable]: onRowClick || onRowDoubleClick})}
+                                >
                                     {columns.map((column, columnIndex) => (
                                         <Table.Td
                                             key={String(column.key)}
