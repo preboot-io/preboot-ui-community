@@ -89,3 +89,7 @@ td[data-sticky-action="true"] {
 .filterRow {
     display: contents; /* This makes the children become direct children of the grid container */
 }
+
+.clickable {
+    cursor: pointer;
+}

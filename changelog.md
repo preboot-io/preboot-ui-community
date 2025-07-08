@@ -1,5 +1,7 @@
 ## 0.1.3
-
+DataTable
+- Added `onRowClick` and `onRowDoubleClick` props to allow handling row click and double-click events.
+- Added comprehensive tests for the `DataTable` component, covering rendering, row click/double-click events, and conditional styling.
 
 ## 0.1.2
 DataTable
