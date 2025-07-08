@@ -1,6 +1,6 @@
 {
   "name": "@preboot.io/preboot-ui-community",
-  "version": "0.2.0",
+  "version": "0.1.3",
   "private": false,
   "description": "A community-driven React component library to accelerate building modern SaaS applications, designed to work with PreBoot.io backend.",
   "author": "Kamil Toszek <kamil.toszek@gmail.com> (https://preboot.io)",
